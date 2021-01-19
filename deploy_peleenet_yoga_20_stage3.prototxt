@@ -9983,3 +9983,4 @@ layer {
   bottom: "classifier_stage3"
   top: "softmaxoutput_stage3"
 }
+
