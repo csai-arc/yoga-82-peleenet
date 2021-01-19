@@ -9177,21 +9177,9 @@ layer {
   top: "stage6_conv1"
 }
 layer {
-  name: "stage6_pool1"
-  type: "Pooling"
-  bottom: "stage6_conv1"
-  top: "stage6_pool1"
-  pooling_param {
-    pool: MAX
-    kernel_size: 2
-    stride: 1
-    pad: 0
-  }
-}
-layer {
   name: "stage6_1/branch1a"
   type: "Convolution"
-  bottom: "stage6_pool1"
+  bottom: "stage6_conv1"
   top: "stage6_1/branch1a"
   convolution_param {
     num_output: 64
@@ -9315,7 +9303,7 @@ layer {
 layer {
   name: "stage6_1/branch2a"
   type: "Convolution"
-  bottom: "stage6_pool1"
+  bottom: "stage6_conv1"
   top: "stage6_1/branch2a"
   convolution_param {
     num_output: 64
@@ -9501,7 +9489,7 @@ layer {
 layer {
   name: "stage6_1/concat"
   type: "Concat"
-  bottom: "stage6_pool1"
+  bottom: "stage6_conv1"
   bottom: "stage6_1/branch1b"
   bottom: "stage6_1/branch2c"
   top: "stage6_1/concat"
@@ -9983,4 +9971,3 @@ layer {
   bottom: "classifier_stage3"
   top: "softmaxoutput_stage3"
 }
-
