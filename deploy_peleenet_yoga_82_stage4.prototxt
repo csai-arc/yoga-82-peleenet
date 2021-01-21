@@ -10109,7 +10109,7 @@ layer {
     decay_mult: 0.0
   }
   inner_product_param {
-    num_output: 82
+    num_output: 20
     bias_term: true
     weight_filler {
       type: "xavier"
